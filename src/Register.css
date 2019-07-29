@@ -1,0 +1,170 @@
+.register-background {
+	background-image: url("body.jpg");
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 120%;
+    position: fixed;
+    z-index: -1;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    transform: scale(1.1); 
+}
+
+.register-flex-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 75%;
+}
+
+.register-container {
+	flex-direction: column;
+	width: 360px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px;
+	background-color: rgb(255,255,255,0.8);
+	border: solid 1px silver;
+	transition: all ease-in-out 2s;
+}
+ 
+.register-img-logo {
+	width: 100%;
+}
+
+.register-input-container-center {
+	display: flex;
+	justify-content: center;
+}
+
+.register-inputs {
+	width:75%;
+	display: flex;
+	flex-direction: column;
+}
+
+.register-radio-container-center {
+	display: flex;
+}
+
+.register-radios {
+	display: flex;
+	margin-left: 50px;
+}
+
+.register-button-container-center {
+	display: flex;
+	justify-content: center;
+}
+
+.register-buttons {
+	width:75%;
+	display: flex;
+	flex-direction: column;
+}
+
+.register-flex-info {
+	display: flex;
+	justify-content: center;
+	margin-top: 7px;
+}
+
+.register-flex-info > a {
+	color: grey;
+	font-size: 13px;
+	text-decoration: none;
+	text-align: center;
+}
+
+.register-flex-info > a:link:hover {
+	text-decoration: underline;
+}
+
+.register-container > input,
+	input[type=text] 
+	input[type=password], 
+	input[type=email] {
+    padding:10px; 
+    border: 1px solid #bf00ff; 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 5px 1px 3px 0px;
+    text-align: center;
+    outline: none;
+    -webkit-transition: all 0.10s ease-in-out;
+	-moz-transition: all 0.10s ease-in-out;
+	-ms-transition: all 0.10s ease-in-out;
+	-o-transition: all 0.10s ease-in-out;
+}
+
+.infoBox-Error {
+	display: flex;
+	padding:10px; 
+    justify-content: center;
+    color: red;
+}
+
+.infoBox {
+	display: flex;
+	padding:10px; 
+    justify-content: center;
+    color: green;
+}
+
+.register-container > input ,
+	input{
+		margin: 20px 5px 18px 25px;
+}
+
+.register-container > button,
+	button[type=register] {
+    padding:10px; 
+    border: 1px solid #0109B5; 
+    -webkit-border-radius: 10px;
+    margin: 5px 1px 3px 0px;
+    outline: none;
+    background-color: #0109B5;
+    color: white;
+    -webkit-transition: all 0.10s ease-in-out;
+	-moz-transition: all 0.10s ease-in-out;
+	-ms-transition: all 0.10s ease-in-out;
+	-o-transition: all 0.10s ease-in-out;
+}
+
+.register-container > button:hover {
+	box-shadow: 0 0 5px #0109B5;
+}
+
+.register-container > input:focus,
+	input[type=text]:focus, 
+	input[type=password]:focus, 
+	input[type=email]:focus{
+  		box-shadow: 0 0 5px purple;
+}
+
+@media screen and (max-height: 480px){
+	.register-flex-container{
+		justify-content: unset;
+	}
+}
+
+@media screen and (max-width: 750px){
+	.register-container {
+		width: 330px;
+	}
+}
+
+@media screen and (max-width: 750px){
+	.register-container {
+		width: 330px;
+	}
+
+	.register-radios {
+		margin-left: 35px;
+	}
+}
