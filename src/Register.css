@@ -107,6 +107,8 @@
 	padding:10px; 
     justify-content: center;
     color: red;
+    text-align: center;
+    font-size: 14px;
 }
 
 .infoBox {
@@ -114,6 +116,8 @@
 	padding:10px; 
     justify-content: center;
     color: green;
+    text-align: center;
+    font-size: 14px;
 }
 
 .register-container > input ,
@@ -121,12 +125,12 @@
 		margin: 20px 5px 18px 25px;
 }
 
-.register-container > button,
-	button[type=register] {
+.register-container
+	button {
     padding:10px; 
     border: 1px solid #0109B5; 
     -webkit-border-radius: 10px;
-    margin: 5px 1px 3px 0px;
+    margin: 5px 1px 10px 0px;
     outline: none;
     background-color: #0109B5;
     color: white;

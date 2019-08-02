@@ -101,7 +101,7 @@
 	-o-transition: all 0.10s ease-in-out;
 }
 
-.login-container > button,
+.login-container 
 	button[type=register] {
     padding:10px; 
     border: 1px solid #0109B5; 

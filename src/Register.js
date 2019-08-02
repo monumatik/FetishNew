@@ -7,21 +7,18 @@ class Register extends React.Component {
 		this.inputTypeLogin = 'text'
 		this.inputTypePassword = 'password'
 		this.inputTypeEmail = 'email'
-		this.inputTypeSex = 'radio'
 		this.host = 'http://localhost:3001'
 		
 		this.state={
 			[ this.inputTypeLogin ]: '',
 			[ this.inputTypePassword ]: '',
 			[ this.inputTypeEmail ]: '',
-			radio: '',
 			loginError: false,
 			infoBoxText: ''
 		}
 
 		this.onChangeValue = this.onChangeValue.bind(this)
 		this.setStateValue = this.setStateValue.bind(this)
-		this.setRadioBox = this.setRadioBox.bind(this)
 		this.onClickRegister = this.onClickRegister.bind(this)
 	}
 
@@ -44,24 +41,11 @@ class Register extends React.Component {
 		let login = this.state[this.inputTypeLogin]
 		let password = this.state[this.inputTypePassword]
 		let email = this.state[this.inputTypeEmail]
-		let sex = this.state[this.inputTypeSex]
 		let loginStatus = false
 		let passwordStatus = false
 		let emailStatus = false
-/*
-		if(login.length > 0){
-			loginStatus = true
-		}
-		if(password.length >= 8){
-			passwordStatus = true
-		}
-		if(email.length > 0){
-			emailStatus = true
-		}
 
-*/
-		if(/*loginStatus && passwordStatus && emailStatus*/ 1===1){
-			//fetch !
+		if(1===1){
 			fetch(`${this.host}/register`,
 			{
 				method: 'POST',
@@ -69,7 +53,6 @@ class Register extends React.Component {
 					login: login,
 					password: password,
 					email: email,
-					sex: sex
 				}),
 				headers:{
 			    	'Content-Type': 'application/json'
@@ -124,18 +107,6 @@ class Register extends React.Component {
 								<input type={ this.inputTypeLogin } onChange={ this.onChangeValue } value={ text } placeholder="Login"/>
 								<input type={ this.inputTypePassword } onChange={ this.onChangeValue } value={ password } placeholder="Hasło"/>
 								<input type={ this.inputTypeEmail } onChange={ this.onChangeValue } value={ email } placeholder="E-mail"/>
-							</div>
-						</div>
-						<div className="register-radio-container-center">
-							<div className="register-radios">
-								<label htmlFor="defaultRadio" className="register-si-radio">
-									<input type={ this.inputTypeSex } id="m" name="radioGroup" onChange={ this.setRadioBox }/>
-									<span className="register-si-label">Mężczyzna</span>
-								</label>
-								<label htmlFor="checkedRadio" className="register-si-radio">
-									<input type={ this.inputTypeSex } id="w" name="radioGroup" onChange={ this.setRadioBox }/>
-									<span className="register-si-label">Kobieta</span>
-								</label>
 							</div>
 						</div>
 						<div className="register-button-container-center">

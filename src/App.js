@@ -1,16 +1,19 @@
 import React from 'react';
 import Login from './Login';
 import Register from './Register';
+import RemindPassword from './RemindPassword'
 
 class App extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = {
 			register: false,
-			login: true
+			login: true,
+			remindPassword: false
 		}
 
 		this.onClickRegister = this.onClickRegister.bind(this)
+		this.onClickRemindPassword = this.onClickRemindPassword.bind(this)
 	}
 
 	onClickRegister(event){
@@ -19,17 +22,25 @@ class App extends React.Component {
 		})
 	}
 
+	onClickRemindPassword(event){
+		this.setState({
+			remindPassword: true
+		})
+	}
+
 	render(){
 
-		const { register } = this.state
-
+		const { register, remindPassword } = this.state
 		return (
 			<React.Fragment>
-	    		{ !register ? <Login onClickRegister={ this.onClickRegister }/> : <Register/> }
+	    		{ !register ? 
+	    			!remindPassword ? <Login onClickRemindPassword={ this.onClickRemindPassword } onClickRegister={ this.onClickRegister }/> : <RemindPassword/>
+	    		:  <Register/>
+
+	    		}
 	  		</React.Fragment>
 	  	);
 	}
-	  
 }
 
 export default App;
