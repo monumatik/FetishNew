@@ -22,7 +22,7 @@ class Login extends React.Component {
 							</div>
 						</div>
 						<div className="login-flex-forgotten-password">
-							<a href="url" target="_blank">Nie pamiętasz hasła?</a>
+							<a onClick={ this.props.onClickRemindPassword }>Nie pamiętasz hasła?</a>
 						</div>
 					</div>
 				</div>
