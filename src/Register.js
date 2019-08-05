@@ -111,7 +111,7 @@ class Register extends React.Component {
 						</div>
 						<div className="register-button-container-center">
 							<div className="register-buttons">
-								<button type="register" onClick={ this.onClickRegister }>Rejestracja</button>
+								<button type="register" onClick={ this.onClickRegister }>Utwórz konto</button>
 							</div>
 						</div>
 						<div className="register-flex-info">
