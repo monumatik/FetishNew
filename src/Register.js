@@ -18,7 +18,6 @@ class Register extends React.Component {
 		}
 
 		this.onChangeValue = this.onChangeValue.bind(this)
-		this.setStateValue = this.setStateValue.bind(this)
 		this.onClickRegister = this.onClickRegister.bind(this)
 	}
 
@@ -28,12 +27,8 @@ class Register extends React.Component {
 
 	setStateValue(inputType, value){
 		this.setState({
-			[inputType]: value
+			[inputType]: value.replace(' ', '')
 		})
-	}
-
-	setRadioBox(event){
-		this.setStateValue(event.target.type, event.target.id)
 	}
 
 	onClickRegister(event){
@@ -111,11 +106,11 @@ class Register extends React.Component {
 						</div>
 						<div className="register-button-container-center">
 							<div className="register-buttons">
-								<button type="register" onClick={ this.onClickRegister }>Rejestracja</button>
+								<button type="register" onClick={ this.onClickRegister }>Utwórz konto</button>
 							</div>
 						</div>
 						<div className="register-flex-info">
-							<a href="url" >Klikając przycisk "Rejestracja" akceptujesz nasz Regulamin.</a>
+							<a href="url" >Klikając przycisk "Utwórz konto" akceptujesz nasz Regulamin.</a>
 						</div>
 						<br/>
 					</div>
