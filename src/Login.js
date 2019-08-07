@@ -4,10 +4,55 @@ import './Login.css';
 class Login extends React.Component {
 	constructor(props){
 		super(props)
-
-	
+		this.loginOrEmail = 'text'
+		this.password = 'password'
+		this.host = 'http://localhost:3001'
+		
+		this.state = {
+			[this.loginOrEmail]: '',
+			[this.password]: ''
+		}
+		this.onChangeValue = this.onChangeValue.bind(this)
+		this.onClickLogin = this.onClickLogin.bind(this)
 	}
 
+	onChangeValue(event){
+		this.setStateValue(event.target.type, event.target.value)
+	}
+
+	setStateValue(inputType, value){
+		this.setState({
+			[inputType]: value.replace(' ', '')
+		})
+	}
+
+	onClickLogin(){
+		let login = this.state[this.loginOrEmail]
+		let password = this.state[this.password]
+
+		console.log(`${this.host}/login`)
+
+		fetch(`${this.host}/login`,
+			{
+				method: 'POST',
+				body: JSON.stringify({
+					login: login,
+					password: password
+				}),
+				headers:{
+			    	'Content-Type': 'application/json'
+			  	}
+			})
+			.then(data=>{
+				if(data.status === 200){
+					return data.json()
+				}else{
+					throw Error(data.statusText)
+				}
+			})
+			.then(data=>console.log(data))
+			.catch(err=>console.log(err))
+	}
 
 	render() {
 		return (
@@ -18,13 +63,13 @@ class Login extends React.Component {
 						<img className="login-img-logo" src="logo.png" alt="logo"/>
 						<div className="login-input-container-center">
 							<div className="login-inputs">
-								<input type="text" placeholder="Login"/>
-								<input type="password" placeholder="Hasło"/>
+								<input type={ this.loginOrEmail } onChange={ this.onChangeValue } placeholder="Login lub e-mail"/>
+								<input type={ this.password } onChange={ this.onChangeValue } placeholder="Hasło"/>
 							</div>
 						</div>
 						<div className="login-button-container-center">
 							<div className="login-buttons">
-								<button type="login">Zaloguj</button>
+								<button type="login" onClick={ this.onClickLogin }>Zaloguj</button>
 								<button onClick={ this.props.onClickRegister } type="register">Rejestracja</button>
 							</div>
 						</div>

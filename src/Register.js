@@ -32,7 +32,6 @@ class Register extends React.Component {
 	}
 
 	onClickRegister(event){
-		console.log('heh')
 		let login = this.state[this.inputTypeLogin]
 		let password = this.state[this.inputTypePassword]
 		let email = this.state[this.inputTypeEmail]
@@ -40,7 +39,6 @@ class Register extends React.Component {
 		let passwordStatus = false
 		let emailStatus = false
 
-		if(1===1){
 			fetch(`${this.host}/register`,
 			{
 				method: 'POST',
@@ -54,7 +52,6 @@ class Register extends React.Component {
 			  	}
 			})
 			.then(data=>{
-				console.log(data.status)
 				if(data.status === 200){
 					return data.json()
 				}else{
@@ -62,7 +59,6 @@ class Register extends React.Component {
 				}
 			})
 			.then(data=>{
-				console.log(data)
 				if(data.error !== null){
 					this.setState({
 						loginError: true,
@@ -76,10 +72,6 @@ class Register extends React.Component {
 				}
 			})
 			.catch(err=>console.log(err))
-
-		}else{
-			alert('ni chuja')
-		}
 	}
 
 	render() {
