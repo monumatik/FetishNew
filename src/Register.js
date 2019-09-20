@@ -59,6 +59,7 @@ class Register extends React.Component {
 				}
 			})
 			.then(data=>{
+				console.log(data)
 				if(data.error !== null){
 					this.setState({
 						loginError: true,
