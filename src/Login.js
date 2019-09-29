@@ -10,7 +10,9 @@ class Login extends React.Component {
 		
 		this.state = {
 			[this.loginOrEmail]: '',
-			[this.password]: ''
+			[this.password]: '',
+			loginError: false,
+			infoBoxText: '',
 		}
 		this.onChangeValue = this.onChangeValue.bind(this)
 		this.onClickLogin = this.onClickLogin.bind(this)
@@ -50,11 +52,24 @@ class Login extends React.Component {
 					throw Error(data.statusText)
 				}
 			})
-			.then(data=>console.log(data))
+			.then(data=>{
+				if(data.error !== null){
+					this.setState({
+						loginError: true,
+						infoBoxText: data.error
+					})
+				}else{
+					this.props.onLogin({
+						token: data.data
+					})
+				}
+			})
 			.catch(err=>console.log(err))
 	}
 
 	render() {
+		const { loginError, infoBoxText } = this.state
+
 		return (
 			<React.Fragment>
 				<div className="login-background"/>
@@ -63,6 +78,11 @@ class Login extends React.Component {
 						<img className="login-img-logo" src="logo.png" alt="logo"/>
 						<div className="login-input-container-center">
 							<div className="login-inputs">
+								{ infoBoxText !== '' ?
+									<div className={ loginError ? 'infoBox-Error' : 'infoBox' }>
+									{ infoBoxText }
+									</div>
+								: <div/> }
 								<input type={ this.loginOrEmail } onChange={ this.onChangeValue } placeholder="Login lub e-mail"/>
 								<input type={ this.password } onChange={ this.onChangeValue } placeholder="Hasło"/>
 							</div>
