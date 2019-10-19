@@ -6,8 +6,12 @@
 	font-size: 16px;
 }
 
-.body-margin-top {
+.Main-body-margin-top {
 	margin-top: 150px;
+}
+
+.container {
+	padding: 0;
 }
 
 
